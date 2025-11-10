@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import {
   InputGroup,
@@ -7,6 +8,9 @@ import {
   InputGroupText,
   InputGroupTextarea,
 } from "@/components/ui/input-group";
+import { useTheme } from "next-themes";
+import { Bell, Mic, Plus, SearchIcon } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,11 +18,15 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuSubContent,
+  DropdownMenuPortal,
 } from "@/components/ui/dropdown-menu";
-import { Bell, Mic, Plus, SearchIcon } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
 
 const Header = () => {
+  const { setTheme, theme } = useTheme();
   return (
     <nav className="flex justify-between px-4 pt-2">
       <div>
@@ -60,17 +68,19 @@ const Header = () => {
             <DropdownMenuContent className="w-60 mr-16 -mt-11">
               <DropdownMenuLabel>
                 <div className="px-10 flex flex-col gap-y-3">
-                <div className="flex justify-between items-center">
-                  <Avatar className="w-10 h-10">
-                    <AvatarImage src="https://github.com/shadcn.png" />
-                  </Avatar>
-                  <div>
-                    <p>My Account</p>
-                    <p>@username</p>
+                  <div className="flex justify-between items-center">
+                    <Avatar className="w-10 h-10">
+                      <AvatarImage src="https://github.com/shadcn.png" />
+                    </Avatar>
+                    <div>
+                      <p>My Account</p>
+                      <p>@username</p>
+                    </div>
                   </div>
-                  </div>
                   <div>
-                    <h1 className="text-center text-indigo-500 cursor-pointer">View your channel</h1>
+                    <h1 className="text-center text-indigo-500 cursor-pointer">
+                      View your channel
+                    </h1>
                   </div>
                 </div>
               </DropdownMenuLabel>
@@ -84,7 +94,16 @@ const Header = () => {
               <DropdownMenuItem>Purchases and memberships</DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem>Your data in Youtube</DropdownMenuItem>
-              <DropdownMenuItem>Appearance</DropdownMenuItem>
+              <DropdownMenuSub>
+                <DropdownMenuSubTrigger>Theme: {theme}</DropdownMenuSubTrigger>
+                <DropdownMenuPortal>
+                  <DropdownMenuSubContent>
+                    <DropdownMenuItem onClick={()=> setTheme("light")}>Light</DropdownMenuItem>
+                    <DropdownMenuItem onClick={()=> setTheme("dark")}>Dark</DropdownMenuItem>
+                    <DropdownMenuItem onClick={()=> setTheme("system")}>System</DropdownMenuItem>
+                  </DropdownMenuSubContent>
+                </DropdownMenuPortal>
+              </DropdownMenuSub>
               <DropdownMenuItem>Language</DropdownMenuItem>
               <DropdownMenuItem>Restricted Mode : On</DropdownMenuItem>
               <DropdownMenuItem>Location : India</DropdownMenuItem>
