@@ -3,13 +3,10 @@ import Image from "next/image";
 import {
   InputGroup,
   InputGroupAddon,
-  InputGroupButton,
   InputGroupInput,
-  InputGroupText,
-  InputGroupTextarea,
 } from "@/components/ui/input-group";
 import { useTheme } from "next-themes";
-import { Bell, Mic, Plus, SearchIcon } from "lucide-react";
+import { Bell, Menu, Mic, Plus, SearchIcon } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -23,14 +20,19 @@ import {
   DropdownMenuSubContent,
   DropdownMenuPortal,
 } from "@/components/ui/dropdown-menu";
+import { SidebarTrigger } from "./ui/sidebar";
 
 
 const Header = () => {
   const { setTheme, theme } = useTheme();
   return (
-    <nav className="flex justify-between px-4 pt-2">
-      <div>
-        <Image src={"/yt.png"} alt="Youtube Image" height={18} width={120} />
+    <nav className="flex justify-between px-4 pt-2 sticky top-0 left-0 bg-background">
+      <div className="flex justify-center items-center">
+            <SidebarTrigger className="w-10 h-10">
+                <Menu />
+            </SidebarTrigger>
+        <Image 
+        src={"/yt.png"} alt="Youtube Image" height={18} width={120} />
       </div>
 
       <div className="flex justify-center items-center gap-x-2 w-5/12">
@@ -38,28 +40,28 @@ const Header = () => {
           <InputGroupInput placeholder="Search..." />
           <InputGroupAddon
             align={"inline-end"}
-            className="bg-accent h-full w-20"
+            className="bg-accent h-full w-20 rounded-r-full cursor-pointer"
           >
             <SearchIcon size={50} />
           </InputGroupAddon>
         </InputGroup>
 
         <div className="rounded-full bg-accent h-12 w-14 flex justify-center items-center">
-          <Mic />
+          <Mic className="cursor-pointer" />
         </div>
       </div>
 
       <div className="flex justify-center items-center gap-x-2">
-        <div className="flex justify-center items-center gap-x-1 h-10 w-28 bg-accent rounded-full">
+        <div className="flex justify-center items-center gap-x-1 h-10 w-28 bg-accent rounded-full cursor-pointer">
           <Plus />
           <p>Create</p>
         </div>
-        <div className="flex justify-center items-center gap-x-1 h-10 w-10 bg-accent rounded-full">
+        <div className="flex justify-center items-center gap-x-1 h-10 w-10 bg-accent rounded-full cursor-pointer">
           <Bell />
         </div>
         <div>
           <DropdownMenu>
-            <DropdownMenuTrigger>
+            <DropdownMenuTrigger className="cursor-pointer">
               <Avatar className="w-10 h-10">
                 <AvatarImage src="https://github.com/shadcn.png" />
                 <AvatarFallback>V</AvatarFallback>
