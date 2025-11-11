@@ -4,6 +4,7 @@ import { generalSans } from "./fonts";
 import { ThemeProvider } from "../components/theme-provider";
 import { SidebarProvider } from "../components/ui/sidebar";
 import Appsidebar from "../components/Appsidebar";
+import Header from "../components/Header";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,10 +26,16 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <SidebarProvider>
-            <Appsidebar />
-          <main className="w-full">
             
-          {children}
+          <main className="w-screen">
+
+            <div className="w-screen fixed top-0 left-0 z-40">
+            <Header />
+            </div>
+            <div className="flex">
+            <Appsidebar />
+          <div className="px-4 flex-1 w-full">{children}</div>
+          </div>
           </main>
 
           </SidebarProvider>

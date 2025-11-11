@@ -26,7 +26,7 @@ import { SidebarTrigger } from "./ui/sidebar";
 const Header = () => {
   const { setTheme, theme } = useTheme();
   return (
-    <nav className="flex justify-between px-4 py-2 sticky top-0 left-0 bg-background">
+    <nav className="flex justify-between px-6 py-2 sticky top-0 left-0 bg-background z-40">
       <div className="flex justify-center items-center">
             <SidebarTrigger className="w-10 h-10">
                 <Menu />

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
   Sidebar,
   SidebarContent,
@@ -6,29 +7,23 @@ import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
+  SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarSeparator,
+  SidebarTrigger,
 } from "./ui/sidebar";
+import { Menu } from "lucide-react";
 
 const Appsidebar = () => {
   return (
-    <Sidebar>
+      
+    <Sidebar className="fixed z-20 pb-10 top-14 h-full">      
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupContent>
-            <SidebarGroupLabel className="h-10">
-              <div className="w-full flex justify-start items-center px-2">
-                <Image
-                  src={"/yt.png"}
-                  alt="Youtube Image"
-                  height={18}
-                  width={120}
-                />
-              </div>
-            </SidebarGroupLabel>
-            <SidebarSeparator />
+
 
             <SidebarMenu className="mt-4">
               <SidebarMenuItem>

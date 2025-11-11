@@ -85,11 +85,12 @@ const arrayRes:videoType[] = [
 const Page = () => {
   return (
     <div className="font-general-sans flex flex-col">
-      <Header />
+    
 
-      <div className="w-screen h-screen py-5 px-5 grid grid-cols-3 gap-y-5">
+      <div className="w-full min-h-screen py-5 mt-16 px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-4">
         {
-          arrayRes.map(obj=><VideoCard
+          arrayRes.map(obj=>
+          <VideoCard          
             id={obj.id}
             key={obj.id}
             imgSrc={obj.imgSrc}
