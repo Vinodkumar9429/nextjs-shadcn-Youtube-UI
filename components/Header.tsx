@@ -32,11 +32,15 @@ const Header = () => {
                 <Menu />
             </SidebarTrigger>
         <Image 
+        className="hidden md:w-full md:block"
         src={"/yt.png"} alt="Youtube Image" height={18} width={120} />
+        <Image 
+        className="flex md:w-full md:hidden h-12 w-16"
+        src={"/yt1.png"} alt="Youtube Image" height={30} width={120} />
       </div>
 
       <div className="flex justify-center items-center gap-x-2 w-5/12">
-        <InputGroup className="rounded-full h-12 pl-4">
+        <InputGroup className="rounded-full h-12 pl-4 md:flex hidden">
           <InputGroupInput placeholder="Search..." />
           <InputGroupAddon
             align={"inline-end"}
@@ -45,16 +49,18 @@ const Header = () => {
             <SearchIcon size={50} />
           </InputGroupAddon>
         </InputGroup>
+            <SearchIcon size={24} className="block md:hidden" />
 
-        <div className="rounded-full bg-accent h-12 w-14 flex justify-center items-center">
+
+        <div className="rounded-full bg-accent h-12 w-14 justify-center items-center md:flex hidden">
           <Mic className="cursor-pointer" />
         </div>
       </div>
 
       <div className="flex justify-center items-center gap-x-2">
-        <div className="flex justify-center items-center gap-x-1 h-10 w-28 bg-accent rounded-full cursor-pointer">
+        <div className="flex justify-center items-center gap-x-1 h-10 px-2 md:px-5 bg-accent rounded-full cursor-pointer">
           <Plus />
-          <p>Create</p>
+          <p className="md:block hidden">Create</p>
         </div>
         <div className="flex justify-center items-center gap-x-1 h-10 w-10 bg-accent rounded-full cursor-pointer">
           <Bell />

@@ -87,7 +87,7 @@ const Page = () => {
     <div className="font-general-sans flex flex-col">
     
 
-      <div className="w-full min-h-screen py-5 mt-16 px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-4">
+      <div className="w-full min-h-screen py-5 mt-16 md:px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-4">
         {
           arrayRes.map(obj=>
           <VideoCard          
